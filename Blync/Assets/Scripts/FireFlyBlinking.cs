@@ -5,7 +5,6 @@ using UnityEngine;
 public class FireFlyBlinking : MonoBehaviour {
     // Start is called before the first frame update
     [SerializeField]
-    // bool lit;
 
     const int interval = 1;
     const int period = 8;
