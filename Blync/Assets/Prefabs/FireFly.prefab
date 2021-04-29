@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6863821048513545829}
   - component: {fileID: 3657381224472774580}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: FireFly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80831a04a8bee9f489dac421827b9991, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,3 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcae893d5a896643942b03f7b6fd80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 80831a04a8bee9f489dac421827b9991, type: 2}
+  - {fileID: 2100000, guid: 6d80e9a19cd57d145add245a0c736a66, type: 2}
