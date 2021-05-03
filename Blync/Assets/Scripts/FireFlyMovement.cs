@@ -21,8 +21,6 @@ public class FireFlyMovement : MonoBehaviour {
         // Random.value gives a value between 0-1.
         // change the acceleration randomly insted of the speed.
         speedX = (Random.value-0.5f); // -0.5 to make acceleration both negative and positive.
-        // speedY = (Random.value-0.5f);
-        // speedZ = (Random.value-0.5f);
       } else if(timer % interval == 1){
         speedY = (Random.value-0.5f);
       } else if(timer % interval == 2) {

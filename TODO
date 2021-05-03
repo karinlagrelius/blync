@@ -1,0 +1,18 @@
+TODO (in order of relevance):
+
+- multiple flies
+- environment/room
+- flies can't escape room
+- shorten blink
+- blink should impact nearby flies
+- make pretty
+
+Make pretty TODO:
+- Give firefly a proper body (not a sphere)
+- lighting effect from firefly
+- forest environment, textures
+- mist
+
+If time:
+- boid movement
+- perhaps import some models of trees/plants?
