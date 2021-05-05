@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireFlyBlinking : MonoBehaviour {
+public class FireflyBlinking : MonoBehaviour {
     // Start is called before the first frame update
     [SerializeField]
 

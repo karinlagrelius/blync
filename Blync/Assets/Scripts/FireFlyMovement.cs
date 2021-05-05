@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireFlyMovement : MonoBehaviour {
+public class FireflyMovement : MonoBehaviour {
     // Update coordinates
     Vector3 pos;
     int timer;
