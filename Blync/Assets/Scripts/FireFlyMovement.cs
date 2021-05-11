@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using Random=UnityEngine.Random;
 
-public class FireflyMovement : MonoBehaviour {
+public class FireFlyMovement : MonoBehaviour {
     // Update coordinates
     Vector3 pos;
     Vector3 oldPos;

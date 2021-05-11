@@ -2,25 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireflyBlinking : MonoBehaviour {
+public class FireFlyBlinking : MonoBehaviour {
     // Start is called before the first frame update
     [SerializeField]
 
-    const int interval = 1;
-    const int period = 8;
+    const float interval = 1;
+    const float period = 8;
     float nextTime;
+
+    [SerializeField]
+    public bool lit;
 
     public Material[] mats;
     Material flylit;
     Material flyunlit;
-    int timer;
+
+    [SerializeField]
+    float timer;
 
     void Start() {
+        lit = false;
         flyunlit = mats[0];
         flylit = mats[1];
         GetComponent<Renderer>().material = flyunlit;
         nextTime = 0;
         timer = Random.Range(0, period);
+    }
+
+    // Move timer closer to go
+    public void Nudge() {
+        timer += (period - timer)/4; // Tortoise catches up to the rabbit...
     }
 
     // Update is called once per frame
@@ -30,11 +41,13 @@ public class FireflyBlinking : MonoBehaviour {
             timer = timer % period;
             nextTime += interval;
         }
-        if(timer == 0) {
+        if(timer <= 1) {
             GetComponent<Renderer>().material = mats[1];
+            lit = true;
 
-        } else if(timer == 1) {
+        } else {
             GetComponent<Renderer>().material = mats[0];
+            lit = false;
         }
     }
 }
