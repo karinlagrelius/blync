@@ -7,7 +7,7 @@ public class FireFlyBlinking : MonoBehaviour {
     [SerializeField]
 
     const float interval = 1;
-    const float period = 8;
+    const float period = 8f;
     float nextTime;
 
     [SerializeField]
@@ -21,17 +21,23 @@ public class FireFlyBlinking : MonoBehaviour {
     float timer;
 
     void Start() {
+        float seed = Random.Range(0f, period);
+        timer = seed;
         lit = false;
         flyunlit = mats[0];
         flylit = mats[1];
         GetComponent<Renderer>().material = flyunlit;
-        nextTime = 0;
-        timer = Random.Range(0, period);
+        nextTime = 1 - (seed % period); // Remainder of a second
+        //prevTime = Time.time + Random.Range(0f, period);
+        //nextTime = prevTime + period;
     }
+
+    // When the fly spawns, set timer to zero. Set
 
     // Move timer closer to go
     public void Nudge() {
-        timer += (period - timer)/4; // Tortoise catches up to the rabbit...
+        Debug.Log("Got nudged!");
+        timer += (period - timer)/2; // Tortoise catches up to the rabbit...
     }
 
     // Update is called once per frame

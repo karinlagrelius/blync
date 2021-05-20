@@ -7,11 +7,12 @@ public class FireFlyNudge : MonoBehaviour {
 
     [SerializeField]
     int numberOfNeighbors;
+    float radius;
     // Start is called before the first frame update
     void Start() {
         //neighbors = new List<GameObject>();
         numberOfNeighbors = neighbors.Count;
-        //radius = gameObject.getchild blabla hämta bubblan
+        
     }
 
     void OnTriggerEnter(Collider other) {
@@ -26,11 +27,11 @@ public class FireFlyNudge : MonoBehaviour {
         for (int i = neighbors.Count - 1; i > 0; i--) {
             if(gameObject.GetComponent<FireFlyBlinking>().lit) {  // Shouldn't check every single frame
                 gameObject.GetComponent<FireFlyBlinking>().Nudge();
-                neighbors.RemoveAt(i);
+                //neighbors.RemoveAt(i);
                 //Debug.Log("Nudged, removed");
             } else if (Vector3.Distance(gameObject.transform.position, neighbors[i].transform.position) > 3/*gameObject.GetComponent<SphereCollider>().radius*/) {
                 neighbors.RemoveAt(i);
-                //Debug.Log("out of range, removed");
+                Debug.Log("out of range, removed");
             }
         }
         numberOfNeighbors = neighbors.Count;
