@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireflyPrefab: {fileID: 4005049749870379361, guid: 6f73b0246e0fa3544bfda70a72a2c507, type: 3}
-  numberOfFlies: 200
+  numberOfFlies: 20
 --- !u!4 &1832379521
 Transform:
   m_ObjectHideFlags: 0

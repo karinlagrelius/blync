@@ -6,8 +6,8 @@ public class FireFlyBlinking : MonoBehaviour {
     // Start is called before the first frame update
     [SerializeField]
 
-    const float interval = 1;
     const float period = 8f;
+    const float onTime = 0.5f;
     float nextTime;
 
     [SerializeField]
@@ -18,42 +18,39 @@ public class FireFlyBlinking : MonoBehaviour {
     Material flyunlit;
 
     [SerializeField]
-    float timer;
+    public bool canNudge;
 
     void Start() {
-        float seed = Random.Range(0f, period);
-        timer = seed;
+        nextTime = Time.time + Random.Range(0f, period);
         lit = false;
         flyunlit = mats[0];
         flylit = mats[1];
         GetComponent<Renderer>().material = flyunlit;
-        nextTime = 1 - (seed % period); // Remainder of a second
-        //prevTime = Time.time + Random.Range(0f, period);
-        //nextTime = prevTime + period;
     }
 
-    // When the fly spawns, set timer to zero. Set
-
-    // Move timer closer to go
+    // Move timer closer to neighbors blinking pattern.
     public void Nudge() {
-        Debug.Log("Got nudged!");
-        timer += (period - timer)/2; // Tortoise catches up to the rabbit...
+        if(!lit){
+          // Debug.Log("Got nudged!");
+          nextTime -= (nextTime - Time.time)/2; // Tortoise catches up to the rabbit...
+          // randomness? todo
+        }
     }
 
     // Update is called once per frame
     void Update() {
-        if(Time.time >= nextTime) {
-            timer++;
-            timer = timer % period;
-            nextTime += interval;
-        }
-        if(timer <= 1) {
-            GetComponent<Renderer>().material = mats[1];
-            lit = true;
-
+      if(Time.time >= nextTime){
+        if(!lit){
+          canNudge = true;
+          lit = true;
+          GetComponent<Renderer>().material = mats[1];
+          nextTime += onTime;
         } else {
-            GetComponent<Renderer>().material = mats[0];
-            lit = false;
+          canNudge = false;
+          lit = false;
+          GetComponent<Renderer>().material = mats[0];
+          nextTime += period-1;
         }
+      }
     }
 }

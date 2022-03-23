@@ -59,11 +59,13 @@ public class FireFlyMovement : MonoBehaviour {
         screenbounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,
                                                                   Screen.height,
                                                                   Camera.main.transform.position.z));
-        pos = transform.position;
+    // Movement commented out so that we can fix the blinking easier.
+       pos = transform.position;
     }
 
     // Update is called once per frame
     void Update() {
-        Move();
+      // Movement commented out so that we can fix the blinking easier.
+      Move();
     }
 }
