@@ -31,7 +31,6 @@ public class FireFlyBlinking : MonoBehaviour {
     // Move timer closer to neighbors blinking pattern.
     public void Nudge() {
         if(!lit){
-          // Debug.Log("Got nudged!");
           nextTime -= (nextTime - Time.time)/2; // Tortoise catches up to the rabbit...
           // randomness? todo
         }

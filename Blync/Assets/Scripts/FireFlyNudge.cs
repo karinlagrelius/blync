@@ -15,7 +15,7 @@ public class FireFlyNudge : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        // Kolla label, se om det är en firefly, isf lägg till i neighbors och kolla i update om de blinkar
+      // If label is a firefly, add to neighbours to be nudged.
         if (other.gameObject.tag == "Firefly") {
             neighbors.Add(other.gameObject);
         }
@@ -30,12 +30,8 @@ public class FireFlyNudge : MonoBehaviour {
         for (int i = neighbors.Count - 1; i > 0; i--) {
             if (Vector3.Distance(gameObject.transform.position, neighbors[i].transform.position) > 10/*gameObject.GetComponent<SphereCollider>().radius*/) {
               neighbors.RemoveAt(i); // could be an expensive operation...
-              // Debug.Log("out of range, removed");
             } else {
               neighbors[i].GetComponent<FireFlyBlinking>().Nudge();
-              // gameObject.GetComponent<FireFlyBlinking>().Nudge(); It was nudging itself...
-              // neighbors.RemoveAt(i);
-              // Debug.Log("Nudged, removed");
             }
           }
         }
